@@ -1,9 +1,8 @@
-// const mongoose = require("../connection/db");
-const contacts = require("../models/Docs");
+const docs = require("../models/Docs");
 
 const getAll = async (req, res) => {
   try {
-    const result = await contacts.find();
+    const result = await docs.find();
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
     return await res;
@@ -14,7 +13,7 @@ const getAll = async (req, res) => {
 
 const getOne = async (req, res) => {
   try {
-    const result = await contacts.findById(req.params.id);
+    const result = await docs.findById(req.params.id);
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
     return await res;
@@ -24,15 +23,12 @@ const getOne = async (req, res) => {
   }
 };
 
-const insertContact = async (req, res) => {
-  const newContact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday,
+const insertDoc = async (req, res) => {
+  const newDoc = {
+    title: req.body.title,
+    description: req.body.description,
   };
-  const response = await contacts.insertMany(newContact);
+  const response = await user.create(newDoc);
   res.status(201).json(response);
   return res;
 };
@@ -57,7 +53,7 @@ const deleteContact = async (req, res) => {
 module.exports = {
   getAll,
   getOne,
-  insertContact,
+  insertDoc,
   updateContact,
   deleteContact,
 };

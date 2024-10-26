@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({});
-
 const docSchema = mongoose.Schema(
   {
     title: {
@@ -15,10 +13,10 @@ const docSchema = mongoose.Schema(
     createdAt: Date,
     publishedAt: Date,
     updatedAt: Date,
-    editedBy: user._id,
+    // editedBy: user._id,
     link: String,
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Contacts", contactsSchema);
+module.exports = mongoose.model("docs", docSchema);

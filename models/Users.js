@@ -1,8 +1,25 @@
 const mongoose = require("mongoose");
 
-const contactsSchema = mongoose.Schema({
-  name: String,
-  age: Number,
-});
+const userSchema = mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    level: {
+      type: ["visitor", "admin1", "admin2"],
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("users", contactsSchema);
+module.exports = mongoose.model("users", userSchema);
