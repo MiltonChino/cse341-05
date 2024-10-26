@@ -7,7 +7,6 @@ const connectDB = async () => {
     mongoose.set("strictQuery", false);
     const connect = await mongoose.connect(process.env.MONGODB_URI);
     console.log(`Database Connected: ${connect.connection.host}`);
-    // console.log(connect.connection.collection);
   } catch (error) {
     console.log("Connect to DB error");
     console.log(error);
