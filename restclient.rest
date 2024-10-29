@@ -3,22 +3,26 @@
 GET http://localhost:3000/
 ###
 
-GET http://localhost:3000/contacts/
+GET http://localhost:3000/users/
+###
+
+GET http://localhost:3000/docs/
 
 ###
-GET http://localhost:3000/contacts/671c585cd5f15d195d9449eb
-
+GET http://localhost:3000/users/6717af075ae4e2146931b6a0
 
 ###
-POST http://localhost:3000/contacts/ HTTP/1.1
+GET http://localhost:3000/docs/6717af075ae4e2146931b6a0
+
+###
+POST http://localhost:3000/users/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Hessed",
-    "lastName": "Chino",
-    "email": "hessedchino@byui.com",
-    "favoriteColor": "red",
-    "birthday": "05/08/24"
+   "firstName":"Luz",
+    "lastName":"Chino",
+    "email":"luzchino@gmail.com",
+    "level":"visitor",
 }
 
 ###

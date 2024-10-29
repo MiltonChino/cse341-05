@@ -28,7 +28,8 @@ const insertDoc = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
   };
-  const response = await user.create(newDoc);
+  const response = await docs.create(newDoc);
+  res.setHeader("Content-Type", "application/json");
   res.status(201).json(response);
   return res;
 };

@@ -2,22 +2,10 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    level: {
-      type: ["visitor", "admin1", "admin2"],
-      required: true,
-    },
+    firstName: String,
+    lastName: String,
+    email: String,
+    level: String,
   },
   { timestamps: true }
 );

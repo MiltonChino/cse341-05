@@ -30,9 +30,13 @@ const insertUser = async (req, res) => {
     email: req.body.email,
     level: req.body.level,
   };
-  const response = await user.create(newUser);
-  res.status(201).json(response);
-  return res;
+  try {
+    const response = await users.insertMany(newUser);
+    res.status(201).json(response);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const updateContact = async (req, res) => {
