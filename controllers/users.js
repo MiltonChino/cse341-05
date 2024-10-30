@@ -1,8 +1,8 @@
-const users = require("../models/Users");
+const User = require("../models/Users");
 
 const getAll = async (req, res) => {
   try {
-    const result = await users.find();
+    const result = await User.find();
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
     return await res;
@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
 
 const getOne = async (req, res) => {
   try {
-    const result = await users.findById(req.params.id);
+    const result = await User.findById(req.params.id);
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
     return await res;
@@ -24,16 +24,14 @@ const getOne = async (req, res) => {
 };
 
 const insertUser = async (req, res) => {
-  const newUser = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    level: req.body.level,
-  };
+  const { _id, firstName, lastName, email, level } = req.body;
   try {
-    const response = await users.insertMany(newUser);
-    res.status(201).json(response);
-    return res;
+    // const response = await users.insertMany(newUser);
+    const newUser = new User({ _id, firstName, lastName, email, level });
+    await newUser.save();
+    res.send("new user saved");
+    // res.status(201).json(response);
+    // return res;
   } catch (error) {
     console.log(error);
   }

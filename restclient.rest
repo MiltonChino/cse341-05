@@ -19,10 +19,11 @@ POST http://localhost:3000/users/ HTTP/1.1
 content-type: application/json
 
 {
-   "firstName":"Luz",
-    "lastName":"Chino",
-    "email":"luzchino@gmail.com",
-    "level":"visitor",
+  "_id": { "$oid": "67221c79f0e3e400d19afc74" },
+  "firstName": "Alcides",
+  "lastName": "Chino",
+  "email": "milchino@gmail.com",
+  "level": "visitor"
 }
 
 ###

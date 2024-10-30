@@ -10,10 +10,6 @@ const docSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    createdAt: Date,
-    publishedAt: Date,
-    updatedAt: Date,
-    // editedBy: user._id,
     link: String,
   },
   { timestamps: true }
