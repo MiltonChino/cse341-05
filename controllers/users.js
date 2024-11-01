@@ -24,16 +24,30 @@ const getOne = async (req, res) => {
 };
 
 const insertUser = async (req, res) => {
-  const { _id, firstName, lastName, email, level } = req.body;
+  // const { firstName, lastName, email, level } = req.body;
+  // const newUser = {
+  //   firstName: req.body.firstName,
+  //   lastName: req.body.lastName,
+  //   email: req.body.email,
+  //   level: req.body.level,
+  // };
+
   try {
-    // const response = await users.insertMany(newUser);
-    const newUser = new User({ _id, firstName, lastName, email, level });
-    await newUser.save();
-    res.send("new user saved");
+    // const newUser = new User({ firstName, lastName, email, level });
+    const newUser = await User.create({
+      user: {
+        firstName: "Milton",
+        lastName: "Chino",
+        email: "mchino@byui.com",
+        level: "",
+      },
+    });
+    console.log(newUser);
     // res.status(201).json(response);
-    // return res;
+    // await newUser.save();
+    return res.send("new user saved");
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 

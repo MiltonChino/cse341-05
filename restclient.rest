@@ -18,12 +18,12 @@ GET http://localhost:3000/docs/6717af075ae4e2146931b6a0
 POST http://localhost:3000/users/ HTTP/1.1
 content-type: application/json
 
-{
-  "_id": { "$oid": "67221c79f0e3e400d19afc74" },
-  "firstName": "Alcides",
-  "lastName": "Chino",
-  "email": "milchino@gmail.com",
-  "level": "visitor"
+{   "user":{
+    "firstName": "Milton",
+    "lastName": "Chino",
+    "email": "mchino@byui.com",
+    "level": "admin2"
+    }
 }
 
 ###
@@ -52,15 +52,15 @@ https://cse341-04.onrender.com/contacts
 https://cse341-04.onrender.com/contacts/6717120629810ddfa37595f2
 
 ###
-POST https://cse341-04.onrender.com/contacts/ HTTP/1.1
+POST https://cse341-04.onrender.com/users/ HTTP/1.1
 content-type: application/json
 
-{
-    "firstName": "Milton",
+{   "user":{
+    "firstName": "Helaman",
     "lastName": "Chino",
-    "email": "miltonchino@byui.com",
-    "favoriteColor": "blue",
-    "birthday": "05/08/97"
+    "email": "helamchino@byui.com",
+    "level": "admin2"
+    }
 }
 
 ###
