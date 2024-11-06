@@ -7,7 +7,8 @@ const getAll = async (req, res) => {
     res.status(200).json(result);
     return await res;
   } catch (error) {
-    handleError(error);
+    res.status(404);
+    return res.send("No users found");
   }
 };
 
@@ -19,35 +20,28 @@ const getOne = async (req, res) => {
     return await res;
   } catch (error) {
     // console.log(error);
-    handleError(error);
+    res.status(404);
+    return res.send("User not found");
   }
 };
 
 const insertUser = async (req, res) => {
-  // const { firstName, lastName, email, level } = req.body;
-  // const newUser = {
-  //   firstName: req.body.firstName,
-  //   lastName: req.body.lastName,
-  //   email: req.body.email,
-  //   level: req.body.level,
-  // };
-
+  const data = req.body;
   try {
-    // const newUser = new User({ firstName, lastName, email, level });
-    const newUser = await User.create({
-      user: {
-        firstName: "Milton",
-        lastName: "Chino",
-        email: "mchino@byui.com",
-        level: "",
-      },
+    const newUser = new User({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      level: data.level,
     });
     console.log(newUser);
-    // res.status(201).json(response);
-    // await newUser.save();
+    await newUser.save();
+    res.status(201);
+    // console.log(newUser);
     return res.send("new user saved");
   } catch (error) {
-    console.log(error.message);
+    res.status(500);
+    return res.send("Internal Server Error");
   }
 };
 

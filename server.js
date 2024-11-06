@@ -9,7 +9,9 @@ const PORT = 3000 || process.env.PORT;
 
 connectDB();
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./routes"));
 
 app.listen(PORT, () => {

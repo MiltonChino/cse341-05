@@ -7,27 +7,18 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
         "description": "",
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "default": {
-            "description": ""
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -42,27 +33,61 @@
         }
       }
     },
-    "/contacts/": {
+    "/users/": {
       "get": {
         "description": "",
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/contacts/{id}": {
+    "/users/{id}": {
       "get": {
         "description": "",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -72,8 +97,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -81,6 +109,7 @@
     "/{id}": {
       "get": {
         "description": "",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -90,8 +119,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }

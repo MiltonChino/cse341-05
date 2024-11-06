@@ -18,11 +18,12 @@ GET http://localhost:3000/docs/6717af075ae4e2146931b6a0
 POST http://localhost:3000/users/ HTTP/1.1
 content-type: application/json
 
-{   "user":{
-    "firstName": "Milton",
+{   
+    "user":{
+    "firstName": "Luz",
     "lastName": "Chino",
-    "email": "mchino@byui.com",
-    "level": "admin2"
+    "email": "Luz@byui.com",
+    "level": "admin1"
     }
 }
 
