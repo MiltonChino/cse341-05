@@ -5,9 +5,9 @@
     "description": "Here you will save the contacts you need",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-05.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
