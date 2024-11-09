@@ -27,7 +27,6 @@ const getOne = async (req, res) => {
 
 const insertUser = async (req, res) => {
   const data = req.body.user;
-  // console.log(req.body);
   try {
     const newUser = new User({
       user: {
