@@ -18,14 +18,13 @@ GET http://localhost:3000/docs/6717af075ae4e2146931b6a0
 POST http://localhost:3000/users/ HTTP/1.1
 content-type: application/json
 
-{   
-    "user":{
-    "firstName": "Luz",
+{   "user":{
+    "firstName": "Helaman",
     "lastName": "Chino",
-    "email": "Luz@byui.com",
+    "email": "helamchino@byui.com",
     "level": "admin1"
     }
-}
+}   
 
 ###
 PUT http://localhost:3000/contacts/67131873a0510839ba0387dd HTTP/1.1
@@ -44,23 +43,23 @@ DELETE http://localhost:3000/contacts/67131873a0510839ba0387dd HTTP/1.1
 // Production
 
 ###
-https://cse341-04.onrender.com/
+https://cse341-05.onrender.com/
 
 ###
-https://cse341-04.onrender.com/contacts
+https://cse341-05.onrender.com/users/
 
 ###
-https://cse341-04.onrender.com/contacts/6717120629810ddfa37595f2
+https://cse341-05.onrender.com/users/6717120629810ddfa37595f2
 
 ###
-POST https://cse341-04.onrender.com/users/ HTTP/1.1
+POST https://cse341-05.onrender.com/users/ HTTP/1.1
 content-type: application/json
 
 {   "user":{
     "firstName": "Helaman",
     "lastName": "Chino",
     "email": "helamchino@byui.com",
-    "level": "admin2"
+    "level": "admin1"
     }
 }
 

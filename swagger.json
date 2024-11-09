@@ -5,9 +5,9 @@
     "description": "Here you will save the contacts you need",
     "version": "1.0.0"
   },
-  "host": "cse341-05.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
@@ -55,16 +55,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "level": {
+                "user": {
                   "example": "any"
                 }
               }

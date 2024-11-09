@@ -26,22 +26,30 @@ const getOne = async (req, res) => {
 };
 
 const insertUser = async (req, res) => {
-  const data = req.body;
+  const data = req.body.user;
+  // console.log(req.body);
   try {
     const newUser = new User({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      level: data.level,
+      user: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        level: data.level,
+      },
     });
     console.log(newUser);
+
     await newUser.save();
-    res.status(201);
-    // console.log(newUser);
-    return res.send("new user saved");
+    if (newUser._id) {
+      res.status(201).json(`User ${newUser._id} created`);
+    } else {
+      res
+        .status(500)
+        .json(newUser.error || "An error occurred while creating the contact.");
+    }
   } catch (error) {
     res.status(500);
-    return res.send("Internal Server Error");
+    res.send(error || "Internal Server Error");
   }
 };
 
